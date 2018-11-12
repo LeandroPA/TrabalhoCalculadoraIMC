@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ConfiguracaoFaixa {
-	public List<Faixa> faixas = new ArrayList<>();
-	public char sexo;
-	public int idadeMin;
-	public int idadeMax;
+	private List<Faixa> faixas = new ArrayList<>();
+	private char sexo;
+	private int idadeMin;
+	private int idadeMax;
 
 	public ConfiguracaoFaixa(char sexo, int idadeMin, int idadeMax) {
 		this.sexo = sexo;
@@ -29,9 +29,6 @@ public class ConfiguracaoFaixa {
 	}
 
 	public boolean match(int idade, char sexo) {
-		//System.out.println("Values Faixa: " + this.sexo + ", " + idadeMin + ", " + idadeMax);
-		//System.out.println("Values variaveis: " + sexo + ", " + idade);
-		//System.out.println(", result: " + ((this.sexo == 'A' || sexo == this.sexo) && idade >= idadeMin && idade < idadeMax));
 		return (this.sexo == 'A' || sexo == this.sexo) && idade >= idadeMin && idade <= idadeMax;
 	}
 
