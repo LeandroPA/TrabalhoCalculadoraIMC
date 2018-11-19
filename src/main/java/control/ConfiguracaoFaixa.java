@@ -15,16 +15,24 @@ public class ConfiguracaoFaixa {
 		this.idadeMax = idadeMax;
 	}
 
+	public List<Faixa> getFaixas() {
+		return faixas;
+	}
+
+	public char getSexo() {
+		return sexo;
+	}
+
+	public int getIdadeMin() {
+		return idadeMin;
+	}
+
+	public int getIdadeMax() {
+		return idadeMax;
+	}
+
 	public ConfiguracaoFaixa addFaixa(double imcMax, String imcResultado) {
-		return addFaixa(new Faixa(imcMax, imcResultado));
-	}
-
-	public ConfiguracaoFaixa addFaixa(int idade, double imcMax, String imcResultado) {
-		return addFaixa(new Faixa(idade, imcMax, imcResultado));
-	}
-
-	public ConfiguracaoFaixa addFaixa(Faixa faixa) {
-		faixas.add(faixa);
+		faixas.add(new Faixa(imcMax, imcResultado));
 		return this;
 	}
 
@@ -32,9 +40,9 @@ public class ConfiguracaoFaixa {
 		return (this.sexo == 'A' || sexo == this.sexo) && idade >= idadeMin && idade <= idadeMax;
 	}
 
-	public String getImc(double imc, int idade) {
+	public String getImc(double imc) {
 		return faixas.stream()
-				.filter(f -> f.match(imc, idade))
+				.filter(f -> f.match(imc))
 				.map(Faixa::getImcResultado)
 				.findFirst().orElse(IMC.DESCONHECIDO);
 	}

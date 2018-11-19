@@ -37,97 +37,98 @@ public class CalculadoraIMC {
 				.addFaixa(40.0, IMC.OBESIDADE_GRAU_II)
 				.addFaixa(Byte.MAX_VALUE, IMC.OBESIDADE_GRAU_III));
 		//CONFIGURACAO PARA CRIANÇAS/ADOLESCENTES MENINAS
-		configuracoesFaixa.add(new ConfiguracaoFaixa('F', 2, 18)
-				.addFaixa(2, 14.8, IMC.BAIXO_PESO)
-				.addFaixa(2, 18.0, IMC.PESO_NORMAL)
-				.addFaixa(2, 19.1, IMC.SOBREPESO)
-				.addFaixa(2, Byte.MAX_VALUE, IMC.OBESIDADE)
+		configuracoesFaixa.add(new ConfiguracaoFaixa('F', 2, 2)
+				.addFaixa(14.8, IMC.BAIXO_PESO)
+				.addFaixa(18.0, IMC.PESO_NORMAL)
+				.addFaixa(19.1, IMC.SOBREPESO)
+				.addFaixa(Byte.MAX_VALUE, IMC.OBESIDADE));
+		configuracoesFaixa.add(new ConfiguracaoFaixa('F', 4, 4)
+				.addFaixa(14.1, IMC.BAIXO_PESO)
+				.addFaixa(16.8, IMC.PESO_NORMAL)
+				.addFaixa(18.05, IMC.SOBREPESO)
+				.addFaixa(Byte.MAX_VALUE, IMC.OBESIDADE));
+		configuracoesFaixa.add(new ConfiguracaoFaixa('F', 6, 6)
+				.addFaixa(13.7, IMC.BAIXO_PESO)
+				.addFaixa(17.1, IMC.PESO_NORMAL)
+				.addFaixa(18.7, IMC.SOBREPESO)
+				.addFaixa(Byte.MAX_VALUE, IMC.OBESIDADE));
+		configuracoesFaixa.add(new ConfiguracaoFaixa('F', 8, 8)
+				.addFaixa(14.0, IMC.BAIXO_PESO)
+				.addFaixa(18.2, IMC.PESO_NORMAL)
+				.addFaixa(20.6, IMC.SOBREPESO)
+				.addFaixa(Byte.MAX_VALUE, IMC.OBESIDADE));
+		configuracoesFaixa.add(new ConfiguracaoFaixa('F', 10, 10)
+				.addFaixa(14.6, IMC.BAIXO_PESO)
+				.addFaixa(20.0, IMC.PESO_NORMAL)
+				.addFaixa(23.0, IMC.SOBREPESO)
+				.addFaixa(Byte.MAX_VALUE, IMC.OBESIDADE));
+		configuracoesFaixa.add(new ConfiguracaoFaixa('F', 12, 12)
+				.addFaixa(15.4, IMC.BAIXO_PESO)
+				.addFaixa(21.7, IMC.PESO_NORMAL)
+				.addFaixa(25.1, IMC.SOBREPESO)
+				.addFaixa(Byte.MAX_VALUE, IMC.OBESIDADE));
+		configuracoesFaixa.add(new ConfiguracaoFaixa('F', 14, 14)
+				.addFaixa(16.4, IMC.BAIXO_PESO)
+				.addFaixa(23.3, IMC.PESO_NORMAL)
+				.addFaixa(27.2, IMC.SOBREPESO)
+				.addFaixa(Byte.MAX_VALUE, IMC.OBESIDADE));
+		configuracoesFaixa.add(new ConfiguracaoFaixa('F', 16, 16)
+				.addFaixa(15.4, IMC.BAIXO_PESO)
+				.addFaixa(24.6, IMC.PESO_NORMAL)
+				.addFaixa(28.8, IMC.SOBREPESO)
+				.addFaixa(Byte.MAX_VALUE, IMC.OBESIDADE));
+		configuracoesFaixa.add(new ConfiguracaoFaixa('F', 18, 18)
+				.addFaixa(18.2, IMC.BAIXO_PESO)
+				.addFaixa(25.6, IMC.PESO_NORMAL)
+				.addFaixa(30.2, IMC.SOBREPESO)
+				.addFaixa(Byte.MAX_VALUE, IMC.OBESIDADE));
 
-				.addFaixa(4, 14.1, IMC.BAIXO_PESO)
-				.addFaixa(4, 16.8, IMC.PESO_NORMAL)
-				.addFaixa(4, 18.05, IMC.SOBREPESO)
-				.addFaixa(4, Byte.MAX_VALUE, IMC.OBESIDADE)
-
-				.addFaixa(6, 13.7, IMC.BAIXO_PESO)
-				.addFaixa(6, 17.1, IMC.PESO_NORMAL)
-				.addFaixa(6, 18.7, IMC.SOBREPESO)
-				.addFaixa(6, Byte.MAX_VALUE, IMC.OBESIDADE)
-
-				.addFaixa(8, 14.0, IMC.BAIXO_PESO)
-				.addFaixa(8, 18.2, IMC.PESO_NORMAL)
-				.addFaixa(8, 20.6, IMC.SOBREPESO)
-				.addFaixa(8, Byte.MAX_VALUE, IMC.OBESIDADE)
-
-				.addFaixa(10, 14.6, IMC.BAIXO_PESO)
-				.addFaixa(10, 20.0, IMC.PESO_NORMAL)
-				.addFaixa(10, 23.0, IMC.SOBREPESO)
-				.addFaixa(10, Byte.MAX_VALUE, IMC.OBESIDADE)
-
-				.addFaixa(12, 15.4, IMC.BAIXO_PESO)
-				.addFaixa(12, 21.7, IMC.PESO_NORMAL)
-				.addFaixa(12, 25.1, IMC.SOBREPESO)
-				.addFaixa(12, Byte.MAX_VALUE, IMC.OBESIDADE)
-
-				.addFaixa(14, 16.4, IMC.BAIXO_PESO)
-				.addFaixa(14, 23.3, IMC.PESO_NORMAL)
-				.addFaixa(14, 27.2, IMC.SOBREPESO)
-				.addFaixa(14, Byte.MAX_VALUE, IMC.OBESIDADE)
-
-				.addFaixa(16, 15.4, IMC.BAIXO_PESO)
-				.addFaixa(16, 24.6, IMC.PESO_NORMAL)
-				.addFaixa(16, 28.8, IMC.SOBREPESO)
-				.addFaixa(16, Byte.MAX_VALUE, IMC.OBESIDADE)
-
-				.addFaixa(18, 18.2, IMC.BAIXO_PESO)
-				.addFaixa(18, 25.6, IMC.PESO_NORMAL)
-				.addFaixa(18, 30.2, IMC.SOBREPESO)
-				.addFaixa(18, Byte.MAX_VALUE, IMC.OBESIDADE));
 		//CONFIGURACAO PARA CRIANÇAS/ADOLESCENTES MENINOS
-		configuracoesFaixa.add(new ConfiguracaoFaixa('M', 2, 18)
-				.addFaixa(2, 15.1, IMC.BAIXO_PESO)
-				.addFaixa(2, 18.2, IMC.PESO_NORMAL)
-				.addFaixa(2, 19.2, IMC.SOBREPESO)
-				.addFaixa(2, Byte.MAX_VALUE, IMC.OBESIDADE)
-
-				.addFaixa(4, 14.4, IMC.BAIXO_PESO)
-				.addFaixa(4, 16.9, IMC.PESO_NORMAL)
-				.addFaixa(4, 17.8, IMC.SOBREPESO)
-				.addFaixa(4, Byte.MAX_VALUE, IMC.OBESIDADE)
-
-				.addFaixa(6, 14.0, IMC.BAIXO_PESO)
-				.addFaixa(6, 17.0, IMC.PESO_NORMAL)
-				.addFaixa(6, 18.3, IMC.SOBREPESO)
-				.addFaixa(6, Byte.MAX_VALUE, IMC.OBESIDADE)
-
-				.addFaixa(8, 14.2, IMC.BAIXO_PESO)
-				.addFaixa(8, 17.8, IMC.PESO_NORMAL)
-				.addFaixa(8, 20.0, IMC.SOBREPESO)
-				.addFaixa(8, Byte.MAX_VALUE, IMC.OBESIDADE)
-
-				.addFaixa(10, 14.6, IMC.BAIXO_PESO)
-				.addFaixa(10, 19.3, IMC.PESO_NORMAL)
-				.addFaixa(10, 22.0, IMC.SOBREPESO)
-				.addFaixa(10, Byte.MAX_VALUE, IMC.OBESIDADE)
-
-				.addFaixa(12, 15.5, IMC.BAIXO_PESO)
-				.addFaixa(12, 21.0, IMC.PESO_NORMAL)
-				.addFaixa(12, 24.0, IMC.SOBREPESO)
-				.addFaixa(12, Byte.MAX_VALUE, IMC.OBESIDADE)
-
-				.addFaixa(14, 16.5, IMC.BAIXO_PESO)
-				.addFaixa(14, 22.6, IMC.PESO_NORMAL)
-				.addFaixa(14, 26.0, IMC.SOBREPESO)
-				.addFaixa(14, Byte.MAX_VALUE, IMC.OBESIDADE)
-
-				.addFaixa(16, 17.7, IMC.BAIXO_PESO)
-				.addFaixa(16, 24.2, IMC.PESO_NORMAL)
-				.addFaixa(16, 27.4, IMC.SOBREPESO)
-				.addFaixa(16, Byte.MAX_VALUE, IMC.OBESIDADE)
-
-				.addFaixa(18, 18.8, IMC.BAIXO_PESO)
-				.addFaixa(18, 25.6, IMC.PESO_NORMAL)
-				.addFaixa(18, 28.8, IMC.SOBREPESO)
-				.addFaixa(18, Byte.MAX_VALUE, IMC.OBESIDADE));
+		configuracoesFaixa.add(new ConfiguracaoFaixa('M', 2, 2)
+				.addFaixa(15.1, IMC.BAIXO_PESO)
+				.addFaixa(18.2, IMC.PESO_NORMAL)
+				.addFaixa(19.2, IMC.SOBREPESO)
+				.addFaixa(Byte.MAX_VALUE, IMC.OBESIDADE));
+		configuracoesFaixa.add(new ConfiguracaoFaixa('M', 4, 4)
+				.addFaixa(14.4, IMC.BAIXO_PESO)
+				.addFaixa(16.9, IMC.PESO_NORMAL)
+				.addFaixa(17.8, IMC.SOBREPESO)
+				.addFaixa(Byte.MAX_VALUE, IMC.OBESIDADE));
+		configuracoesFaixa.add(new ConfiguracaoFaixa('M', 6, 6)
+				.addFaixa(14.0, IMC.BAIXO_PESO)
+				.addFaixa(17.0, IMC.PESO_NORMAL)
+				.addFaixa(18.3, IMC.SOBREPESO)
+				.addFaixa(Byte.MAX_VALUE, IMC.OBESIDADE));
+		configuracoesFaixa.add(new ConfiguracaoFaixa('M', 8, 8)
+				.addFaixa(14.2, IMC.BAIXO_PESO)
+				.addFaixa(17.8, IMC.PESO_NORMAL)
+				.addFaixa(20.0, IMC.SOBREPESO)
+				.addFaixa(Byte.MAX_VALUE, IMC.OBESIDADE));
+		configuracoesFaixa.add(new ConfiguracaoFaixa('M', 10, 10)
+				.addFaixa(14.6, IMC.BAIXO_PESO)
+				.addFaixa(19.3, IMC.PESO_NORMAL)
+				.addFaixa(22.0, IMC.SOBREPESO)
+				.addFaixa(Byte.MAX_VALUE, IMC.OBESIDADE));
+		configuracoesFaixa.add(new ConfiguracaoFaixa('M', 12, 12)
+				.addFaixa(15.5, IMC.BAIXO_PESO)
+				.addFaixa(21.0, IMC.PESO_NORMAL)
+				.addFaixa(24.0, IMC.SOBREPESO)
+				.addFaixa(Byte.MAX_VALUE, IMC.OBESIDADE));
+		configuracoesFaixa.add(new ConfiguracaoFaixa('M', 14, 14)
+				.addFaixa(16.5, IMC.BAIXO_PESO)
+				.addFaixa(22.6, IMC.PESO_NORMAL)
+				.addFaixa(26.0, IMC.SOBREPESO)
+				.addFaixa(Byte.MAX_VALUE, IMC.OBESIDADE));
+		configuracoesFaixa.add(new ConfiguracaoFaixa('M', 16, 16)
+				.addFaixa(17.7, IMC.BAIXO_PESO)
+				.addFaixa(24.2, IMC.PESO_NORMAL)
+				.addFaixa(27.4, IMC.SOBREPESO)
+				.addFaixa(Byte.MAX_VALUE, IMC.OBESIDADE));
+		configuracoesFaixa.add(new ConfiguracaoFaixa('M', 18, 18)
+				.addFaixa(18.8, IMC.BAIXO_PESO)
+				.addFaixa(25.6, IMC.PESO_NORMAL)
+				.addFaixa(28.8, IMC.SOBREPESO)
+				.addFaixa(Byte.MAX_VALUE, IMC.OBESIDADE));
 	}
 
 	public String calcularIMC(double altura, double peso, String sexo, int idade) {
@@ -136,11 +137,15 @@ public class CalculadoraIMC {
 
 	public String calcularIMC(double imc, String sexo, int idade) {
 		Optional<ConfiguracaoFaixa> faixaConfig = this.getConfiguracaoFaixaByIdadeESexo(idade, sexo);
-		return faixaConfig.map(cf -> cf.getImc(imc, idade)).orElse("OPÇÕES INVÁLIDAS");
+		return faixaConfig.map(cf -> cf.getImc(imc)).orElse("OPÇÕES INVÁLIDAS");
 	}
 
 	private Optional<ConfiguracaoFaixa> getConfiguracaoFaixaByIdadeESexo(int idade, String sexo) {
 		char s = sexo.toUpperCase().charAt(0);
 		return this.configuracoesFaixa.stream().filter(cf -> cf.match(idade, s)).findFirst();
+	}
+
+	public List<ConfiguracaoFaixa> getConfiguracoesFaixa() {
+		return configuracoesFaixa;
 	}
 }
