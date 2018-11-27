@@ -1,5 +1,9 @@
 package control;
 
+/**
+ * Classe contendo os valores dos resultados de forma estática
+ * @author Leandro Pereira - 5404889
+ */
 public class  IMC {
 	public static String BAIXO_PESO_MUITO_GRAVE = "Baixo peso muito grave";
 	public static String BAIXO_PESO_GRAVE ="Baixo peso grave";
@@ -11,4 +15,5 @@ public class  IMC {
 	public static String OBESIDADE_GRAU_II = "Obesidade grau II";
 	public static String OBESIDADE_GRAU_III = "Obesidade grau III (obesidade mórbida)";
 	public static String DESCONHECIDO = "Desconhecido";
+	public static String INVALIDO = "OPÇÕES INVÁLIDAS";
 }

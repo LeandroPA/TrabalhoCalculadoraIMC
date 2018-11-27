@@ -5,6 +5,11 @@ import control.IMC;
 import org.junit.Assert;
 import org.junit.Test;
 
+/**
+ * Classe de testes utilizando todas as combinações, com valores minimos, máximos, abaixo e acima do mínimo e máximo
+ * para idades e IMC (altura e peso gerados aleatoriamente para combinar com o IMC desejado)
+ * @author Leandro Pereira - 5404889
+ */
 public class CalculadoraIMCTests {
 
 	private CalculadoraIMC imc = new CalculadoraIMC();

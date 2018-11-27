@@ -1,5 +1,9 @@
 package control;
 
+/**
+ * Classe Faixa que contém o IMC máximo que o resultado do IMC em questão se enquadra.
+ * @author Leandro Pereira - 5404889
+ */
 public class Faixa {
 	private double imcMax;
 	private String imcResultado;

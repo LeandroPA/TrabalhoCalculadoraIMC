@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Classe principal, que carrega a configuração de Faixa
+ * @author Leandro Pereira - 5404889
+ */
 public class CalculadoraIMC {
 	private List<ConfiguracaoFaixa> configuracoesFaixa = new ArrayList<>();
 
@@ -19,7 +23,7 @@ public class CalculadoraIMC {
 				.addFaixa(30.0, IMC.SOBREPESO)
 				.addFaixa(35.0, IMC.OBESIDADE_GRAU_I)
 				.addFaixa(40.0, IMC.OBESIDADE_GRAU_II)
-				.addFaixa(Byte.MAX_VALUE, IMC.OBESIDADE_GRAU_III)); // Byte.MAX_VALUE para considerar um valor "alto"
+				.addFaixa(Byte.MAX_VALUE, IMC.OBESIDADE_GRAU_III)); // Byte.MAX_VALUE apenas para considerar um valor "infinito", ou longe de ser alcançado.
 		//CONFIGURACAO PARA MULHERES IDOSAS
 		configuracoesFaixa.add(new ConfiguracaoFaixa('F', 66, 200)
 				.addFaixa(22.0, IMC.BAIXO_PESO)
@@ -36,7 +40,7 @@ public class CalculadoraIMC {
 				.addFaixa(35.1, IMC.OBESIDADE_GRAU_I)
 				.addFaixa(40.0, IMC.OBESIDADE_GRAU_II)
 				.addFaixa(Byte.MAX_VALUE, IMC.OBESIDADE_GRAU_III));
-		//CONFIGURACAO PARA CRIANÇAS/ADOLESCENTES MENINAS
+		//CONFIGURACAO PARA CRIANÇAS/ADOLESCENTES MENINAS, PARA CADA IDADES PARES
 		configuracoesFaixa.add(new ConfiguracaoFaixa('F', 2, 2)
 				.addFaixa(14.8, IMC.BAIXO_PESO)
 				.addFaixa(18.0, IMC.PESO_NORMAL)
@@ -83,7 +87,7 @@ public class CalculadoraIMC {
 				.addFaixa(30.2, IMC.SOBREPESO)
 				.addFaixa(Byte.MAX_VALUE, IMC.OBESIDADE));
 
-		//CONFIGURACAO PARA CRIANÇAS/ADOLESCENTES MENINOS
+		//CONFIGURACAO PARA CRIANÇAS/ADOLESCENTES MENINOS, PARA CADA IDADE PARES
 		configuracoesFaixa.add(new ConfiguracaoFaixa('M', 2, 2)
 				.addFaixa(15.1, IMC.BAIXO_PESO)
 				.addFaixa(18.2, IMC.PESO_NORMAL)
@@ -131,21 +135,34 @@ public class CalculadoraIMC {
 				.addFaixa(Byte.MAX_VALUE, IMC.OBESIDADE));
 	}
 
+	/**
+	 * Calcula o resutado do IMC de acordo com a altura, peso, sexo e idade
+	 * @param altura A altura da pessoa
+	 * @param peso O pessoa da pessoa
+	 * @param sexo O sexo
+	 * @param idade A idade
+	 * @return Retorna um
+	 */
 	public String calcularIMC(double altura, double peso, String sexo, int idade) {
-		return this.calcularIMC(peso / (altura * altura), sexo, idade);
+		// Formula para calcular o IMC
+		double imc = peso / (altura * altura);
+		// Seleciona a configuração de faixas de acordo com a idade e sexo
+		Optional<ConfiguracaoFaixa> faixaConfig = getConfiguracaoFaixaByIdadeESexo(idade, sexo);
+		// Utiliza lambda para retornar o IMC correto ou uma mensagem de inválido
+		return faixaConfig.map(cf -> cf.getImc(imc)).orElse(IMC.INVALIDO);
 	}
 
-	public String calcularIMC(double imc, String sexo, int idade) {
-		Optional<ConfiguracaoFaixa> faixaConfig = this.getConfiguracaoFaixaByIdadeESexo(idade, sexo);
-		return faixaConfig.map(cf -> cf.getImc(imc)).orElse("OPÇÕES INVÁLIDAS");
-	}
-
+	/**
+	 * Retorna aconfiguração de faixas de acordo com a idade e sexo
+	 * @param idade idade da pessoa
+	 * @param sexo Sexo da pessoa, podendo ser "feminino", "masculino" ou "ambos", ou apenas a primeira letra de cada
+	 * @return Retorna um Optional contendo ou não uma configuração que atenda as opções
+	 */
 	private Optional<ConfiguracaoFaixa> getConfiguracaoFaixaByIdadeESexo(int idade, String sexo) {
-		char s = sexo.toUpperCase().charAt(0);
-		return this.configuracoesFaixa.stream().filter(cf -> cf.match(idade, s)).findFirst();
-	}
-
-	public List<ConfiguracaoFaixa> getConfiguracoesFaixa() {
-		return configuracoesFaixa;
+		//Pega somnete a primeira letra da frase
+		char s = sexo != null ? sexo.toUpperCase().charAt(0) : 0;
+		//Utiliza Stream para filtrar as configuraçoes que atendem as condicoes
+		//E retorna o primeiro resultado somente.
+		return configuracoesFaixa.stream().filter(cf -> cf.match(idade, s)).findFirst();
 	}
 }

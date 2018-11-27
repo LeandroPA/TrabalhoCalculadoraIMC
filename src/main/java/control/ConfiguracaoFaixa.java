@@ -3,6 +3,10 @@ package control;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Classe responsável para agrupar uma configuração de faixas IMC por sexo e idade minima e máxima
+ * @author Leandro Pereira - 5404889
+ */
 public class ConfiguracaoFaixa {
 	private List<Faixa> faixas = new ArrayList<>();
 	private char sexo;
@@ -41,6 +45,9 @@ public class ConfiguracaoFaixa {
 	}
 
 	public String getImc(double imc) {
+		//Filtra todos as Faixas de acordo com o range do IMC
+		//Mapeia apenas para pegar a string do metodo getImcResultado
+		//Retorna o primeiro resultado, caso nenhuma, uma mensagem de "Desconhecido"
 		return faixas.stream()
 				.filter(f -> f.match(imc))
 				.map(Faixa::getImcResultado)
